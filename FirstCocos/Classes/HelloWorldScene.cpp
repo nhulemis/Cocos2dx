@@ -120,7 +120,7 @@ bool HelloWorld::init()
 
 	CCLOG("dang o day roi");
 	auto gotoNext = CallFunc::create([](){
-		Director::getInstance()->replaceScene(FirstSceneLoadLogo::createScene());
+		Director::getInstance()->replaceScene(TransitionCrossFade::create(1.6, FirstSceneLoadLogo::createScene()));
 	});
 
 	auto sequence = Sequence::create(DelayTime::create(1), gotoNext, nullptr);

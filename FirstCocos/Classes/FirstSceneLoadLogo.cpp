@@ -60,8 +60,8 @@ bool FirstSceneLoadLogo::init()
 
 		CCLOG("touch");
 
-		auto gotoNext = SecondScene::createScene();
-		Director::getInstance()->replaceScene(gotoNext);
+		//auto gotoNext = SecondScene::createScene();
+		Director::getInstance()->replaceScene(TransitionFade::create(1.6, SecondScene::createScene()));
 		return true;
 	};
 

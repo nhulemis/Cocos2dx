@@ -22,51 +22,21 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-#include "SecondScene.h"
-#include "SimpleAudioEngine.h"
+#ifndef __Second_SCENE_H__
+#define __Second_SCENE_H__
 
-USING_NS_CC;
+#include "cocos2d.h"
 
-Scene* SecondScene::createScene()
+class SecondScene : public cocos2d::Scene
 {
-	CCLOG("hello");
-	auto scene = Scene::create();
-	auto layer = SecondScene::create();
-	scene->addChild(layer);
-	return scene;
-}
+public:
+    static cocos2d::Scene* createScene();
 
-// on "init" you need to initialize your instance
-bool SecondScene::init()
-{
-    //////////////////////////////
-    // 1. super init first
-    if ( !Scene::init() )
-    {
-        return false;
-    }
+    virtual bool init();
+    
+   
+    // implement the "static create()" method manually
+    CREATE_FUNC(SecondScene);
+};
 
-	auto screenSize = Director::getInstance()->getVisibleSize();
-	auto secondScene = Sprite::create("background.png");
-
-	secondScene->setScale(1.7,1);
-	secondScene->setPosition(screenSize.width / 2, screenSize.height / 2);
-	addChild(secondScene);
-
-
-	//auto qooBee = Sprite::create("qoobee.png");
-	//qooBee->setScale(0.5);
-	//qooBee->setPosition(screenSize.width / 3, screenSize.height / 3);
-
-	//
-
-	//addChild(qooBee);
-
-	CCLOG("hello");
-
-
-    return true;
-}
-
-
-
+#endif // __Second_SCENE_H__
