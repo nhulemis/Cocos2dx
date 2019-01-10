@@ -22,12 +22,12 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-#ifndef __Second_SCENE_H__
-#define __Second_SCENE_H__
+#ifndef __QooBee_SCENE_H__
+#define __QooBee_SCENE_H__
 
 #include "cocos2d.h"
 
-class SecondScene : public cocos2d::Scene
+class IconQooBee : public cocos2d::Scene
 {
 public:
     static cocos2d::Scene* createScene();
@@ -36,7 +36,7 @@ public:
     
    
     // implement the "static create()" method manually
-    CREATE_FUNC(SecondScene);
+    CREATE_FUNC(IconQooBee);
 };
 
-#endif // __Second_SCENE_H__
+#endif // __QooBee_SCENE_H__

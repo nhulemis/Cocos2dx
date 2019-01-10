@@ -30,7 +30,7 @@ USING_NS_CC;
 
 Scene* FirstSceneLoadLogo::createScene()
 {
-	CCLOG("createScene");
+	//CCLOG("createScene");
 	auto scene = Scene::create();
 	auto layer = FirstSceneLoadLogo::create();
 	scene->addChild(layer);
@@ -48,7 +48,7 @@ bool FirstSceneLoadLogo::init()
     }
 
 	auto screenSize = Director::getInstance()->getVisibleSize();
-	auto secondScene = Sprite::create("thephone.png");
+	auto secondScene = Sprite::create("logoGL.png");
 
 	secondScene->setScale(0.4);
 	secondScene->setPosition(screenSize.width / 2, screenSize.height / 2);
