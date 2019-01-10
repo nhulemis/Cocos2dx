@@ -22,23 +22,22 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-#include "FirstSceneLoadLogo.h"
-#include "SimpleAudioEngine.h"
 #include "SecondScene.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
-Scene* FirstSceneLoadLogo::createScene()
+Scene* SecondScene::createScene()
 {
-	CCLOG("createScene");
+	CCLOG("hello");
 	auto scene = Scene::create();
-	auto layer = FirstSceneLoadLogo::create();
+	auto layer = SecondScene::create();
 	scene->addChild(layer);
 	return scene;
 }
 
 // on "init" you need to initialize your instance
-bool FirstSceneLoadLogo::init()
+bool SecondScene::init()
 {
     //////////////////////////////
     // 1. super init first
@@ -48,28 +47,16 @@ bool FirstSceneLoadLogo::init()
     }
 
 	auto screenSize = Director::getInstance()->getVisibleSize();
-	auto secondScene = Sprite::create("thephone.png");
+	auto secondScene = Sprite::create("background.png");
 
-	secondScene->setScale(0.4);
+	//secondScene->setScale(1);
 	secondScene->setPosition(screenSize.width / 2, screenSize.height / 2);
 	addChild(secondScene);
-	CCLOG("init");
+	CCLOG("hello");
 
-	auto _listener = EventListenerTouchOneByOne::create();
-	_listener->onTouchBegan = [](Touch *touch, Event *event) {
 
-		CCLOG("touch");
-
-		auto gotoNext = SecondScene::createScene();
-		Director::getInstance()->replaceScene(gotoNext);
-		return true;
-	};
-
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, this);
     return true;
 }
-
-
 
 
 

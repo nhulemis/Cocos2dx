@@ -22,54 +22,21 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-#include "FirstSceneLoadLogo.h"
-#include "SimpleAudioEngine.h"
-#include "SecondScene.h"
+#ifndef __Second_SCENE_H__
+#define __Second_SCENE_H__
 
-USING_NS_CC;
+#include "cocos2d.h"
 
-Scene* FirstSceneLoadLogo::createScene()
+class SecondScene : public cocos2d::Scene
 {
-	CCLOG("createScene");
-	auto scene = Scene::create();
-	auto layer = FirstSceneLoadLogo::create();
-	scene->addChild(layer);
-	return scene;
-}
+public:
+    static cocos2d::Scene* createScene();
 
-// on "init" you need to initialize your instance
-bool FirstSceneLoadLogo::init()
-{
-    //////////////////////////////
-    // 1. super init first
-    if ( !Scene::init() )
-    {
-        return false;
-    }
+    virtual bool init();
+    
+   
+    // implement the "static create()" method manually
+    CREATE_FUNC(SecondScene);
+};
 
-	auto screenSize = Director::getInstance()->getVisibleSize();
-	auto secondScene = Sprite::create("thephone.png");
-
-	secondScene->setScale(0.4);
-	secondScene->setPosition(screenSize.width / 2, screenSize.height / 2);
-	addChild(secondScene);
-	CCLOG("init");
-
-	auto _listener = EventListenerTouchOneByOne::create();
-	_listener->onTouchBegan = [](Touch *touch, Event *event) {
-
-		CCLOG("touch");
-
-		auto gotoNext = SecondScene::createScene();
-		Director::getInstance()->replaceScene(gotoNext);
-		return true;
-	};
-
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, this);
-    return true;
-}
-
-
-
-
-
+#endif // __Second_SCENE_H__

@@ -34,7 +34,7 @@ public:
 
     virtual bool init();
     
-   
+	//virtual bool OnTouch_Listener(cocos2d::CCTouch * touch,cocos2d::CCEvent *event);
     // implement the "static create()" method manually
     CREATE_FUNC(FirstSceneLoadLogo);
 };
