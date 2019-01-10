@@ -328,3 +328,10 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+
+
+# ignore folder cocos2dx
+bin/
+cocos2d/
+proj.ios_mac/
+proj.linux
