@@ -22,25 +22,23 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-#include "main.h"
-#include "AppDelegate.h"
+#ifndef __HELLOWORLD_SCENE_H__
+#define __HELLOWORLD_SCENE_H__
+
 #include "cocos2d.h"
-#include "FirstScene.h"
 
-USING_NS_CC;
-
-int WINAPI _tWinMain(HINSTANCE hInstance,
-                       HINSTANCE hPrevInstance,
-                       LPTSTR    lpCmdLine,
-                       int       nCmdShow)
+class HelloWorld : public cocos2d::Scene
 {
-    UNREFERENCED_PARAMETER(hPrevInstance);
-    UNREFERENCED_PARAMETER(lpCmdLine);
+public:
+    static cocos2d::Scene* createScene();
 
-    // create the application instance
-    AppDelegate app;
-	
-	
+    virtual bool init();
+    
+    // a selector callback
+    void menuCloseCallback(cocos2d::Ref* pSender);
+    
+    // implement the "static create()" method manually
+    CREATE_FUNC(HelloWorld);
+};
 
-    return Application::getInstance()->run();
-}
+#endif // __HELLOWORLD_SCENE_H__

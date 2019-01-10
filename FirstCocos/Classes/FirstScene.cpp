@@ -18,7 +18,7 @@ bool FirstScene::Init()
 	}
 
 	auto size = Director::getInstance()->getVisibleSize();
-	auto imageBackGround = Sprite::create("background1.png");
+	auto imageBackGround = Sprite::create("background1");
 	imageBackGround->setPosition(size);
 	addChild(imageBackGround);
 	return true;
