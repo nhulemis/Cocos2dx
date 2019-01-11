@@ -55,12 +55,14 @@ bool IconQooBee::init()
 	addChild(qooBee);
 	auto moveLeftQoobee = MoveTo::create(3, Vec2(3 * screenSize.width / 4, 3 * screenSize.height / 4));
 	auto moveRightQoobee = MoveTo::create(3, Vec2(screenSize.width / 4, screenSize.height / 4));
-	auto scaleUp = ScaleTo::create(1, 1.0f);
-	auto scaleLow = ScaleTo::create(1, 0.5f);
+	auto scaleUp = ScaleTo::create(3, 1.0f);
+	auto scaleLow = ScaleTo::create(3, 0.5f);
 
+	auto rotation1 = RotateBy::create(3, 180);
+	auto rotation2 = RotateBy::create(3, 180);
 
-	auto spawns1 = Spawn::create(moveLeftQoobee, scaleUp, nullptr);
-	auto spawns2 = Spawn::create(moveRightQoobee, scaleLow, nullptr);
+	auto spawns1 = Spawn::create(moveLeftQoobee, scaleUp,rotation1, nullptr);
+	auto spawns2 = Spawn::create(moveRightQoobee, scaleLow,rotation2, nullptr);
 
 	auto sequence = Sequence::create(spawns1, spawns2, nullptr);
 

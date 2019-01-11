@@ -22,25 +22,24 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-#include "SecondScene.h"
+#include "ThirdSceneLable.h"
 #include "SimpleAudioEngine.h"
-#include "thirdSceneLable.h"
-#include "IconQooBee.h"
+#include "SecondScene.h"
 #include <string>
 
 USING_NS_CC;
 
-Scene* SecondScene::createScene()
+Scene* ThirdSceneLable::createScene()
 {
 	//CCLOG("hello");
 	auto scene = Scene::create();
-	auto layer = SecondScene::create();
+	auto layer = ThirdSceneLable::create();
 	scene->addChild(layer);
 	return scene;
 }
 
 // on "init" you need to initialize your instance
-bool SecondScene::init()
+bool ThirdSceneLable::init()
 {
 	//////////////////////////////
 	// 1. super init first
@@ -49,31 +48,51 @@ bool SecondScene::init()
 		return false;
 	}
 
-	auto screenSize = Director::getInstance()->getVisibleSize();
-	auto secondScene = Sprite::create("background.png");
+	auto _screenSize = Director::getInstance()->getVisibleSize();
 
-	secondScene->setScale(1.7, 1);
-	secondScene->setPosition(screenSize.width / 2, screenSize.height / 2);
-	addChild(secondScene);
 
-	/*auto qooBee = Sprite::create("qoobee.png");
-	qooBee->setScale(0.5);
-	qooBee->setPosition(screenSize.width / 4, screenSize.height / 4);*/
+	auto _thirdScene = Sprite::create("alpha.png");
+	//secondScene->setScale(1.7, 1);
+	_thirdScene->setPosition(_screenSize.width / 2, _screenSize.height / 2);
+	addChild(_thirdScene);
 
-	auto qooBee = IconQooBee::createScene();
-	addChild(qooBee);
 
-	auto _listener_Touch = EventListenerTouchOneByOne::create();
-	_listener_Touch->onTouchBegan = [](Touch *touch, Event* evt) {
-		
-		Director::getInstance()->replaceScene(TransitionFadeDown::create(3, ThirdSceneLable::createScene()));
+	//add label
+	auto _label = Label::createWithSystemFont("Wellcome to Game loft", "Arial", 25);
+	_label->setColor(cocos2d::Color3B::BLUE);
+	_label->setPosition(_screenSize.width / 2, _screenSize.height * 3 / 4);
+	addChild(_label);
 
-		return true;
+	auto printLine = [=](const std::string& mess, float X, float Y) {
+		auto _showLabel = Label::createWithSystemFont(mess, "Arial", 20);
+		_showLabel->setColor(cocos2d::Color3B::RED);
+		_showLabel->setPosition(X, Y);
+		addChild(_showLabel);
+
 	};
+	int a = 30;
+	auto _callPrintMenu = [=]() {
+		printLine("Play", _screenSize.width / 2, _screenSize.height * 3 / 4 - a);
+		printLine("About", _screenSize.width / 2, _screenSize.height * 3 / 4 - 2 * a);
+		printLine("Setting", _screenSize.width / 2, _screenSize.height * 3 / 4 - 3 * a);
+		printLine("Quit", _screenSize.width / 2, _screenSize.height * 3 / 4 - 4 * a);
 
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(_listener_Touch, this);
-	
-	CCLOG("second");
+	};
+	_callPrintMenu();
+
+
+	auto _exit = MenuItemImage::create("CloseNormal.png", "CloseSelected.png", [](Ref* ref) {
+		exit(0);
+	});
+
+	_exit->setAnchorPoint(Vec2(1, 0));
+	_exit->setPosition(_screenSize.width,0);
+
+	auto _menu = Menu::create(_exit, nullptr);
+	//_menu->setAnchorPoint(Vec2(1, 0));	
+	_menu->setPosition(Vec2::ZERO);
+	addChild(_menu,1);
+
 
 
 	return true;
