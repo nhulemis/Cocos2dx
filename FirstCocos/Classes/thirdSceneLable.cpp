@@ -57,20 +57,21 @@ bool ThirdSceneLable::init()
 	addChild(_thirdScene);
 
 
-	//add label
-	auto _label = Label::createWithSystemFont("Wellcome to Game loft", "Arial", 25);
-	_label->setColor(cocos2d::Color3B::BLUE);
-	_label->setPosition(_screenSize.width / 2, _screenSize.height * 3 / 4);
+	//add label custom font 
+	int a = 40;
+	auto _label = Label::createWithTTF("Wellcome to Gameloft", "fonts/vtks distress.ttf", 45);
+	_label->setColor(cocos2d::Color3B::WHITE);
+	_label->setPosition(_screenSize.width / 2, _screenSize.height * 3 / 4 + a);
 	addChild(_label);
 
 	auto printLine = [=](const std::string& mess, float X, float Y) {
-		auto _showLabel = Label::createWithSystemFont(mess, "Arial", 20);
-		_showLabel->setColor(cocos2d::Color3B::RED);
+		auto _showLabel = Label::createWithSystemFont(mess, "Arial", 30);
+		_showLabel->setColor(cocos2d::Color3B::WHITE);
 		_showLabel->setPosition(X, Y);
 		addChild(_showLabel);
 
 	};
-	int a = 30;
+	
 	auto _callPrintMenu = [=]() {
 		printLine("Play", _screenSize.width / 2, _screenSize.height * 3 / 4 - a);
 		printLine("About", _screenSize.width / 2, _screenSize.height * 3 / 4 - 2 * a);
