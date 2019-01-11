@@ -64,10 +64,11 @@ bool SecondScene::init()
 	addChild(qooBee);
 
 	auto _listener_Touch = EventListenerTouchOneByOne::create();
-	_listener_Touch->onTouchBegan = [](Touch *touch, Event* evt) {
+	int a = 0;
+	_listener_Touch->onTouchBegan = [=](Touch *touch, Event* evt) {
 		
 		Director::getInstance()->replaceScene(TransitionFadeDown::create(3, ThirdSceneLable::createScene()));
-
+		CCLOG("second touch");
 		return true;
 	};
 

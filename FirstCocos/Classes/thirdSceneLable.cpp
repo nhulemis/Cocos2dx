@@ -26,6 +26,7 @@
 #include "SimpleAudioEngine.h"
 #include "SecondScene.h"
 #include <string>
+#include <ui\CocosGUI.h>
 
 USING_NS_CC;
 
@@ -51,49 +52,67 @@ bool ThirdSceneLable::init()
 	auto _screenSize = Director::getInstance()->getVisibleSize();
 
 
-	auto _thirdScene = Sprite::create("alpha.png");
+	auto _thirdScene = Sprite::create("splash_back.png");
 	//secondScene->setScale(1.7, 1);
 	_thirdScene->setPosition(_screenSize.width / 2, _screenSize.height / 2);
 	addChild(_thirdScene);
 
 
 	//add label custom font 
-	int a = 40;
+	int a = 50;
 	auto _label = Label::createWithTTF("Wellcome to Gameloft", "fonts/vtks distress.ttf", 45);
 	_label->setColor(cocos2d::Color3B::WHITE);
 	_label->setPosition(_screenSize.width / 2, _screenSize.height * 3 / 4 + a);
 	addChild(_label);
 
-	auto printLine = [=](const std::string& mess, float X, float Y) {
-		auto _showLabel = Label::createWithSystemFont(mess, "Arial", 30);
-		_showLabel->setColor(cocos2d::Color3B::WHITE);
-		_showLabel->setPosition(X, Y);
-		addChild(_showLabel);
-
+	auto printLabel = [](const std::string& mess)->Label* {
+		auto lblItem =  Label::createWithTTF("Wellcome to Gameloft", "fonts/File.ttf", 35);
+		return lblItem;
 	};
-	
+
 	auto _callPrintMenu = [=]() {
-		printLine("Play", _screenSize.width / 2, _screenSize.height * 3 / 4 - a);
-		printLine("About", _screenSize.width / 2, _screenSize.height * 3 / 4 - 2 * a);
-		printLine("Setting", _screenSize.width / 2, _screenSize.height * 3 / 4 - 3 * a);
-		printLine("Quit", _screenSize.width / 2, _screenSize.height * 3 / 4 - 4 * a);
+		auto _itemPlay = MenuItemFont::create("play", nullptr);
+		auto _itemAbout = MenuItemFont::create("About", nullptr);
+		auto _itemSetting = MenuItemFont::create("Setting", nullptr);
+		auto _itemQuit = MenuItemFont::create("Quit", nullptr);
 
+		_itemPlay->setColor(cocos2d::Color3B::WHITE);
+		_itemAbout->setColor(cocos2d::Color3B::WHITE);
+		_itemSetting->setColor(cocos2d::Color3B::WHITE);
+		_itemQuit->setColor(cocos2d::Color3B::WHITE);
+
+
+		_itemPlay->setPosition(_screenSize.width / 2, _screenSize.height * 3 / 4 - a);
+		_itemAbout->setPosition(_screenSize.width / 2, _screenSize.height * 3 / 4 - 2 * a);
+		_itemSetting->setPosition(_screenSize.width / 2, _screenSize.height * 3 / 4 - 3 * a);
+		_itemQuit->setPosition(_screenSize.width / 2, _screenSize.height * 3 / 4 - 4 * a);
+
+		auto _exit = MenuItemImage::create("CloseNormal.png", "CloseSelected.png", [](Ref* ref) {
+			exit(0);
+		});
+
+		_exit->setAnchorPoint(Vec2(1, 0));
+		_exit->setPosition(_screenSize.width, 0);
+
+		auto _menu = Menu::create(_exit,_itemPlay,_itemAbout,_itemSetting,_itemQuit, nullptr);
+		//_menu->setAnchorPoint(Vec2(1, 0));	
+		_menu->setPosition(Vec2::ZERO);
+		addChild(_menu, 1);
 	};
+
 	_callPrintMenu();
 
-
-	auto _exit = MenuItemImage::create("CloseNormal.png", "CloseSelected.png", [](Ref* ref) {
-		exit(0);
+	static auto _checkbox = ui::CheckBox::create("checkbox_normal.png",
+		"checkbox_pressed.png", "checkbox_checked.png",
+		"checkbox_normal_disable.png", "checkbox_checked_disable.png");
+	_checkbox->setSelected(true);
+	_checkbox->addClickEventListener([&](Ref* event) {
+		log("CheckBox state: %d", _checkbox->isSelected());
+		//_checkbox->setSelected(false);
 	});
-
-	_exit->setAnchorPoint(Vec2(1, 0));
-	_exit->setPosition(_screenSize.width,0);
-
-	auto _menu = Menu::create(_exit, nullptr);
-	//_menu->setAnchorPoint(Vec2(1, 0));	
-	_menu->setPosition(Vec2::ZERO);
-	addChild(_menu,1);
-
+	_checkbox->setPosition(Vec2(100, 100));
+	_checkbox->setEnabled(true);
+	addChild(_checkbox);
 
 
 	return true;
