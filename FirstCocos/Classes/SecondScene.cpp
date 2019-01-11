@@ -54,20 +54,14 @@ bool SecondScene::init()
 	secondScene->setPosition(screenSize.width / 2, screenSize.height / 2);
 	addChild(secondScene);
 
-	auto qooBee = Sprite::create("qoobee.png");
+	/*auto qooBee = Sprite::create("qoobee.png");
 	qooBee->setScale(0.5);
-	qooBee->setPosition(screenSize.width / 4, screenSize.height / 4);
+	qooBee->setPosition(screenSize.width / 4, screenSize.height / 4);*/
+
+	auto qooBee = IconQooBee::createScene();
 	addChild(qooBee);
 
-	auto moveLeftQoobee = MoveTo::create(3, Vec2(3*screenSize.width / 4, 3*screenSize.height / 4));
-	auto moveRightQoobee = MoveTo::create(3,Vec2(screenSize.width / 4, screenSize.height / 4));
-	auto scaleUp = ScaleTo::create(1, 1.0f);
-	auto scaleLow = ScaleTo::create(1, 0.5f);
-	auto sequence = Sequence::create(moveLeftQoobee,scaleUp, moveRightQoobee,scaleLow, nullptr);
-
-	auto repeat = RepeatForever::create(sequence);
-
-	qooBee->runAction(repeat);
+	
 	CCLOG("second");
 
 
