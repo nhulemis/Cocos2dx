@@ -1,0 +1,1 @@
+Capture_01.png.png 50 18, Capture_02.png.png 172 18, Capture_03.png.png 282 18, Capture_04.png.png 429 18, Capture_05.png.png 568 18, Capture_06.png.png 693 18, Capture_07.png.png 812 18, Capture_08.png.png 957 18.

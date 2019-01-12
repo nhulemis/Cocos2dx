@@ -54,6 +54,7 @@ bool ThirdSceneLable::init()
 
 	auto _thirdScene = Sprite::create("splash_back.png");
 	//secondScene->setScale(1.7, 1);
+	_thirdScene->setScale(1.3);
 	_thirdScene->setPosition(_screenSize.width / 2, _screenSize.height / 2);
 	addChild(_thirdScene);
 
@@ -110,6 +111,7 @@ bool ThirdSceneLable::init()
 		log("CheckBox state: %d", _checkbox->isSelected());
 		//_checkbox->setSelected(false);
 	});
+	_checkbox->setScale(0.5);
 	_checkbox->setPosition(Vec2(100, 100));
 	_checkbox->setEnabled(true);
 	addChild(_checkbox);
