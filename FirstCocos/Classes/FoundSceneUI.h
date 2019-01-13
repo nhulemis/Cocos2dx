@@ -34,7 +34,9 @@ public:
 
     virtual bool init();
 	cocos2d::Animation *animation;
-	
+	bool OnTouchBegan(cocos2d::Touch *touch,cocos2d::Event *event);
+
+	cocos2d::Sprite *_phase1;
 	cocos2d::Animation *CreateAnimate(std::string name, int totalFrame, float delay);
     // implement the "static create()" method manually
     CREATE_FUNC(FourSceneUI);

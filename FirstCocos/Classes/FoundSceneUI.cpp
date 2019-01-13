@@ -76,7 +76,7 @@ bool FourSceneUI::init()
 
 	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("the boy/sprites.plist");
 
-	auto _phase1 = Sprite::createWithSpriteFrameName("Capture_01.png");
+	_phase1 = Sprite::createWithSpriteFrameName("Capture_01.png");
 
 	_phase1->setPosition(_screenSize.width / 3, _screenSize.height / 3);
 
@@ -88,7 +88,20 @@ bool FourSceneUI::init()
 	animate->retain();
 	_phase1->runAction(RepeatForever::create(animate));
 
+	auto _listener = EventListenerTouchOneByOne::create();
+	_listener->onTouchBegan = CC_CALLBACK_2(FourSceneUI::OnTouchBegan, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, this);
+	return true;
+}
 
+
+bool FourSceneUI::OnTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
+{
+	animation->release();
+	animation = FourSceneUI::CreateAnimate("Capture_runleft_", 8, 0.15);
+	auto animate = Animate::create(animation);
+	animate->retain();
+	_phase1->runAction(RepeatForever::create(animate));
 	return true;
 }
 
