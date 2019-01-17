@@ -4,24 +4,24 @@
 	<dict>
 		<key>frames</key>
 		<dict>
-			<key>background6.png</key>
+			<key>background5.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{0,0},{2000,1333}}</string>
+				<string>{{0,0},{715,1200}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{0,0},{2000,1333}}</string>
+				<string>{{0,0},{715,1200}}</string>
 				<key>sourceSize</key>
-				<string>{2000,1333}</string>
+				<string>{715,1200}</string>
 			</dict>
 
 			<key>dragon2 (1).png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{0,1852},{96,101}}</string>
+				<string>{{0,1728},{96,101}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
@@ -35,7 +35,7 @@
 			<key>dragon2 (2).png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{141,1639},{64,105}}</string>
+				<string>{{90,1925},{64,105}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
@@ -49,7 +49,7 @@
 			<key>dragon2 (3).png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{97,1852},{96,107}}</string>
+				<string>{{0,1620},{96,107}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
@@ -63,7 +63,7 @@
 			<key>dragon2 (4).png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{100,1753},{95,94}}</string>
+				<string>{{0,1830},{95,94}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
@@ -74,10 +74,10 @@
 				<string>{95,94}</string>
 			</dict>
 
-			<key>fire (1).png</key>
+			<key>fire_1.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{0,1334},{140,418}}</string>
+				<string>{{0,1201},{140,418}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
@@ -88,88 +88,18 @@
 				<string>{141,425}</string>
 			</dict>
 
-			<key>meteoriod (1).png</key>
+			<key>meteor.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{0,1954},{91,86}}</string>
+				<string>{{0,1925},{89,89}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{0,0},{91,86}}</string>
+				<string>{{14,1},{89,89}}</string>
 				<key>sourceSize</key>
-				<string>{91,86}</string>
-			</dict>
-
-			<key>meteoriod (2).png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{141,1445},{89,90}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{0,0},{89,90}}</string>
-				<key>sourceSize</key>
-				<string>{89,90}</string>
-			</dict>
-
-			<key>meteoriod (3).png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{0,1753},{99,98}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{0,0},{99,98}}</string>
-				<key>sourceSize</key>
-				<string>{99,98}</string>
-			</dict>
-
-			<key>meteoriod (4).png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{141,1334},{89,110}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{0,0},{89,110}}</string>
-				<key>sourceSize</key>
-				<string>{89,110}</string>
-			</dict>
-
-			<key>meteoriod (5).png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{141,1536},{86,102}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{0,0},{86,102}}</string>
-				<key>sourceSize</key>
-				<string>{86,102}</string>
-			</dict>
-
-			<key>meteoriod (6).png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{92,1960},{91,87}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{0,0},{91,87}}</string>
-				<key>sourceSize</key>
-				<string>{91,87}</string>
+				<string>{110,91}</string>
 			</dict>
 
 		</dict>
@@ -179,7 +109,7 @@
 			<key>format</key>
 			<integer>2</integer>
 			<key>size</key>
-			<string>{2048,2048}</string>
+			<string>{1024,2048}</string>
 			<key>textureFileName</key>
 			<string>sprites.png</string>
 			</dict>
