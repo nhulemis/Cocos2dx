@@ -112,5 +112,9 @@ void GameScene::update(float delta)
 		rocks.at(i)->Update();
 	}
 
+	if (!k->IsAlive())
+	{
+		cocos2d::Director::getInstance()->pause();
+	}
 
 }

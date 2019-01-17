@@ -15,7 +15,7 @@
 
 #define ROCK_STEP_MAX 15
 #define ROCK_STEP_MIN 7
-#define SPEED_FIRE 13
+#define SPEED_FIRE 9
 
 #define OVER_ 100
 
@@ -25,10 +25,11 @@
 #define ROTATE_MIN 0
 #define ROTATE_MAX 360
 
-#define MAX_ROCK_ON_SCREEN 20
+#define MAX_ROCK_ON_SCREEN 25
+#define MAX_FIRE 40
 
 #define RADIUS_ROCK 15
-#define SIZE_FIRE 0.18
+#define SIZE_FIRE 0.2
 
 
 

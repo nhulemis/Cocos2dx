@@ -11,6 +11,8 @@ int frameCount = 0;
 bool controlKnight = false;
 cocos2d::Vec2 distanceTouchToDragon;
 
+int life;
+
 #pragma endregion
 
 
@@ -33,7 +35,7 @@ KnightSky::KnightSky(cocos2d::Scene * scene)
 	listener->onTouchEnded = CC_CALLBACK_2(KnightSky::OnTouchEnded, this);
 	scene->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, scene);
 
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < MAX_FIRE; i++)
 	{
 		fires.push_back(new Fire(scene));
 	}
@@ -63,6 +65,7 @@ void KnightSky::Update()
 
 void KnightSky::Init()
 {
+	life = 3;
 }
 
 
@@ -106,6 +109,23 @@ void KnightSky::Collision(std::vector<Rock*> rocks)
 			if (GetRect().intersectsCircle(rocks.at(i)->GetPosition(), RADIUS_ROCK))
 			{
 				CCLOG("xyz");
+				SetAlive(false);
+
+				/*if (life <= 0)
+				{
+					SetAlive(false);
+					return;
+				}
+				life--;
+				auto fadeIn = cocos2d::FadeIn::create(0.5);
+				auto fadeOut = cocos2d::FadeOut::create(0);
+				auto seq = cocos2d::Sequence::create(
+					fadeOut, fadeIn,
+					fadeOut->clone(), fadeIn->clone(),
+					nullptr
+				);
+				mSprite->runAction(seq);
+				continue;*/
 			}
 		}
 
@@ -141,10 +161,15 @@ bool KnightSky::OnTouchBegan(cocos2d::Touch * touch, cocos2d::Event * evt)
 
 void KnightSky::OnTouchMoved(cocos2d::Touch * touch, cocos2d::Event * evt)
 {
-	auto locationTouch = touch->getLocation();
-	if (controlKnight)
+	auto locationTouch = touch->getLocation() + distanceTouchToDragon;
+	if (controlKnight &&
+		locationTouch.x >=0 &&
+		locationTouch.x <= SCREEN_W  &&
+		locationTouch.y >= 0 &&
+		locationTouch.y <= SCREEN_H
+		)
 	{
-		mSprite->setPosition(locationTouch + distanceTouchToDragon);
+		mSprite->setPosition(locationTouch);
 	}
 }
 

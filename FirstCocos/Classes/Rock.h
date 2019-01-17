@@ -20,6 +20,7 @@ public:
 
 	cocos2d::Vec2 GetPosition();
 
+
 	virtual void Update();
 	virtual void Init();
 };

@@ -41,7 +41,7 @@ void Rock::Init()
 	mCurY = SCREEN_H + mSprite->getContentSize().height / 2;
 	mSprite->setPosition(cocos2d::Vec2(mCurX, mCurY));
 	//
-	x = cocos2d::random(-OVER_, SCREEN_W + OVER_);
+	x = cocos2d::random(0, SCREEN_W);
 	mMarkX = x;
 	mMarkY = -mSprite->getContentSize().height / 2;
 
