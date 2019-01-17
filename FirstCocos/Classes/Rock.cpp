@@ -12,6 +12,11 @@ Rock::~Rock()
 {
 }
 
+cocos2d::Vec2 Rock::GetPosition()
+{
+	return mSprite->getPosition();
+}
+
 void Rock::Update()
 {
 	if (IsAlive())

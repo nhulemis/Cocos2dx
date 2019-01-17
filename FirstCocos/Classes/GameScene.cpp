@@ -104,6 +104,9 @@ void GameScene::update(float delta)
 		RockFall();
 	}
 
+	k->Update();
+	k->Collision(rocks);
+
 	for (int i = 0; i < rocks.size(); i++)
 	{
 		rocks.at(i)->Update();

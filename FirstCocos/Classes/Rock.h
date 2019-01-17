@@ -17,6 +17,9 @@ private:
 public:
 	Rock(cocos2d::Scene* scenc);
 	~Rock();
+
+	cocos2d::Vec2 GetPosition();
+
 	virtual void Update();
 	virtual void Init();
 };
