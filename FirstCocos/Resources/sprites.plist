@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>frames</key>
+		<dict>
+			<key>background6.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,0},{2000,1333}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{2000,1333}}</string>
+				<key>sourceSize</key>
+				<string>{2000,1333}</string>
+			</dict>
+
+			<key>dragon2 (1).png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,1852},{96,101}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{96,101}}</string>
+				<key>sourceSize</key>
+				<string>{96,101}</string>
+			</dict>
+
+			<key>dragon2 (2).png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{141,1639},{64,105}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{64,105}}</string>
+				<key>sourceSize</key>
+				<string>{64,105}</string>
+			</dict>
+
+			<key>dragon2 (3).png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{97,1852},{96,107}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{96,107}}</string>
+				<key>sourceSize</key>
+				<string>{96,107}</string>
+			</dict>
+
+			<key>dragon2 (4).png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{100,1753},{95,94}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{95,94}}</string>
+				<key>sourceSize</key>
+				<string>{95,94}</string>
+			</dict>
+
+			<key>fire (1).png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,1334},{140,418}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,4},{140,418}}</string>
+				<key>sourceSize</key>
+				<string>{141,425}</string>
+			</dict>
+
+			<key>meteoriod (1).png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,1954},{91,86}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{91,86}}</string>
+				<key>sourceSize</key>
+				<string>{91,86}</string>
+			</dict>
+
+			<key>meteoriod (2).png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{141,1445},{89,90}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{89,90}}</string>
+				<key>sourceSize</key>
+				<string>{89,90}</string>
+			</dict>
+
+			<key>meteoriod (3).png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,1753},{99,98}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{99,98}}</string>
+				<key>sourceSize</key>
+				<string>{99,98}</string>
+			</dict>
+
+			<key>meteoriod (4).png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{141,1334},{89,110}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{89,110}}</string>
+				<key>sourceSize</key>
+				<string>{89,110}</string>
+			</dict>
+
+			<key>meteoriod (5).png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{141,1536},{86,102}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{86,102}}</string>
+				<key>sourceSize</key>
+				<string>{86,102}</string>
+			</dict>
+
+			<key>meteoriod (6).png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{92,1960},{91,87}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{91,87}}</string>
+				<key>sourceSize</key>
+				<string>{91,87}</string>
+			</dict>
+
+		</dict>
+
+		<key>metadata</key>
+		<dict>
+			<key>format</key>
+			<integer>2</integer>
+			<key>size</key>
+			<string>{2048,2048}</string>
+			<key>textureFileName</key>
+			<string>sprites.png</string>
+			</dict>
+		</dict>
+</plist>
