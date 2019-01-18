@@ -67,7 +67,7 @@ bool GameScene::init()
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("sprites.plist", "sprites.png");
 
-	auto backGround = cocos2d::Sprite::createWithSpriteFrameName(BACKGROUND_IMG);
+	auto backGround = cocos2d::Sprite::create(BACKGROUND_IMG);
 	backGround->setScale(0.8);
 	backGround->setPosition(visibleSize.width / 2, visibleSize.height / 2);
 	addChild(backGround);
@@ -105,7 +105,7 @@ void GameScene::update(float delta)
 	}
 
 	k->Update();
-	k->Collision(rocks);
+	k->Collision(rocks,this);
 
 	for (int i = 0; i < rocks.size(); i++)
 	{

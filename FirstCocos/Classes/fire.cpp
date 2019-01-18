@@ -2,7 +2,7 @@
 #include "Define.h"
 Fire::Fire(cocos2d::Scene * scenc)
 {
-	mSprite = cocos2d::Sprite::createWithSpriteFrameName(FIRE_DRAGON);
+	mSprite = cocos2d::Sprite::createWithSpriteFrameName(FIRE_DRAGON_IMG);
 	mSprite->setScale(SIZE_FIRE);
 	SetAlive(false);
 	scenc->addChild(mSprite);

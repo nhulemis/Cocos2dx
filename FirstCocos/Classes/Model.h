@@ -9,11 +9,11 @@ public:
 	Model();
 	~Model();
 
-	void SetAlive(bool status);
+	virtual void SetAlive(bool status);
 	bool IsAlive();
 
 	cocos2d::Rect GetRect();
-
+	virtual cocos2d::Animation * createAnimation(std::string name, int frames, float delay);
 	virtual void Update() = 0;
 	virtual void Init() = 0;
 };

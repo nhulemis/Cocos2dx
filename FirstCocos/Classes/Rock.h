@@ -19,7 +19,8 @@ public:
 	~Rock();
 
 	cocos2d::Vec2 GetPosition();
-
+	cocos2d::Animation * createAnimation(std::string name, int frames, float delay);
+	
 
 	virtual void Update();
 	virtual void Init();

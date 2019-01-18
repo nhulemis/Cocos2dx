@@ -1,15 +1,17 @@
 #include "KnightSky.h"
 #include "Define.h"
 #include "fire.h"
-#include "cpVect.h"
+#include "Explosion.h"
 
 #pragma region declare
 std::vector<Fire*> fires;
-
+std::vector<Explosion*> Expls;
 int frameCount = 0;
 
 bool controlKnight = false;
 cocos2d::Vec2 distanceTouchToDragon;
+
+//Explosion *e;
 
 int life;
 
@@ -18,15 +20,17 @@ int life;
 
 KnightSky::KnightSky(cocos2d::Scene * scene)
 {
+	//Explosion* e = new Explosion(scene);
 	mSprite = cocos2d::Sprite::create();
 	SetAlive(true);
-	auto animation = createAnimation(DRAGON_KNIGHT, 4, 0.15);
+	auto animation = createAnimation(DRAGON_KNIGHT_IMG, 4, 0.15);
 	auto sequence = cocos2d::Sequence::create(cocos2d::Animate::create(animation),
 		nullptr
 	);
 	mSprite->runAction(cocos2d::RepeatForever::create(sequence));
 	mSprite->setPosition(SCREEN_W / 2, SCREEN_H / 10);
 	mSprite->setScale(1.2);
+	mSprite->setPositionZ(2);
 	scene->addChild(mSprite);
 
 	auto listener = cocos2d::EventListenerTouchOneByOne::create();
@@ -40,6 +44,10 @@ KnightSky::KnightSky(cocos2d::Scene * scene)
 		fires.push_back(new Fire(scene));
 	}
 
+	for (int i = 0; i < MAX_ROCK_ON_SCREEN; i++)
+	{
+		Expls.push_back(new Explosion(scene));
+	}
 
 	Init();
 }
@@ -61,6 +69,14 @@ void KnightSky::Update()
 	{
 		fires.at(i)->Update();
 	}
+
+	if (frameCount %40 == 0)
+	{
+		for (int i = 0; i < MAX_ROCK_ON_SCREEN; i++)
+		{
+			Expls.at(i)->SetAlive(false);
+		}
+	}
 }
 
 void KnightSky::Init()
@@ -69,19 +85,11 @@ void KnightSky::Init()
 }
 
 
-cocos2d::Animation * KnightSky::createAnimation(std::string name, int frames, float delay)
+
+
+void KnightSky::SetAlive(bool status)
 {
-	cocos2d::Vector<cocos2d::SpriteFrame*> _frames;
-	for (int i = 1; i <= frames; i++)
-	{
-		char buffer[20] = { 0 };
-		sprintf(buffer, "(%d).png", i);
-		std::string _name = name + buffer;
-		auto frame = cocos2d::SpriteFrameCache::getInstance()->getSpriteFrameByName(_name);
-		_frames.pushBack(frame);
-	}
-	auto anima = cocos2d::Animation::createWithSpriteFrames(_frames, delay);
-	return anima;
+	mAlive = status;
 }
 
 void KnightSky::Fight()
@@ -100,17 +108,19 @@ void KnightSky::Fight()
 
 }
 
-void KnightSky::Collision(std::vector<Rock*> rocks)
+void KnightSky::Collision(std::vector<Rock*> rocks, cocos2d::Scene * scene)
 {
 	for (int i = 0; i < rocks.size(); i++)
 	{
-		if (rocks.at(i)->IsAlive())
+		auto _rock = rocks.at(i);
+		if (_rock->IsAlive())
 		{
-			if (GetRect().intersectsCircle(rocks.at(i)->GetPosition(), RADIUS_ROCK))
+			if (GetRect().intersectsCircle(_rock->GetPosition(), RADIUS_ROCK))
 			{
 				CCLOG("xyz");
+			//	Explosion(scene, mSprite->getPosition());
+				Expls.at(i)->SetPosExplotion(mSprite->getPosition());
 				SetAlive(false);
-
 				/*if (life <= 0)
 				{
 					SetAlive(false);
@@ -131,17 +141,20 @@ void KnightSky::Collision(std::vector<Rock*> rocks)
 
 		for (int j = 0; j < fires.size(); j++)
 		{
-			if (fires.at(j)->GetRect().intersectsCircle(rocks.at(i)->GetPosition(), RADIUS_ROCK))
+			if (fires.at(i)->IsAlive())
 			{
-				fires.at(j)->SetAlive(false);
-				rocks.at(i)->SetAlive(false);
+				if (fires.at(j)->GetRect().intersectsCircle(_rock->GetPosition(), RADIUS_ROCK))
+				{
+					 //inclue setAlive false					
+					Expls.at(i)->SetPosExplotion(_rock->GetPosition());
+					fires.at(j)->SetAlive(false);
+					_rock->SetAlive(false);
+				}
 			}
 		}
-
 	}
-
-
 }
+
 
 bool KnightSky::OnTouchBegan(cocos2d::Touch * touch, cocos2d::Event * evt)
 {

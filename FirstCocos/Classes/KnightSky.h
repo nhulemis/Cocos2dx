@@ -13,11 +13,12 @@ public:
 	~KnightSky();
 	virtual void Update();
 	virtual void Init();
-	cocos2d::Animation * createAnimation(std::string name, int frames, float delay);
-
+	
+	virtual void SetAlive(bool status) override;
 	void Fight();
 
-	void Collision(std::vector<Rock*> rocks);
+	void Collision(std::vector<Rock*> rocks, cocos2d::Scene * scene);
+//	void Explosion(cocos2d::Scene * scene,cocos2d::Vec2 pos);
 
 	virtual bool OnTouchBegan(cocos2d::Touch* touch, cocos2d::Event* evt);
 	virtual void OnTouchMoved(cocos2d::Touch* touch, cocos2d::Event* evt);
