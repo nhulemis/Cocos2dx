@@ -10,7 +10,7 @@ private:
 	
 public:
 	KnightSky(cocos2d::Scene* scenc);
-	~KnightSky();
+	virtual ~KnightSky();
 	virtual void Update();
 	virtual void Init();
 	

@@ -7,7 +7,7 @@ private:
 	
 public:
 	Fire(cocos2d::Scene* scenc);
-	~Fire();
+	virtual ~Fire();
 	void SetPosition(cocos2d::Vec2 pos);
 	virtual void Update();
 	virtual void Init();

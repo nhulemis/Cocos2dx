@@ -4,7 +4,7 @@
 class Rock : public Model
 {
 private:
-	int mAmor;
+	int mArmor;
 	float mSize;
 	float mCurX;
 	float mCurY;
@@ -14,13 +14,15 @@ private:
 	float mTiltA;
 	float mTiltB;
 	float mRotate;
+
 public:
 	Rock(cocos2d::Scene* scenc);
-	~Rock();
+	virtual ~Rock();
 
 	cocos2d::Vec2 GetPosition();
 	cocos2d::Animation * createAnimation(std::string name, int frames, float delay);
-	
+
+	int GetArmor();
 
 	virtual void Update();
 	virtual void Init();

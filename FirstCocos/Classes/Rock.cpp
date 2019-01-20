@@ -5,11 +5,15 @@ Rock::Rock(cocos2d::Scene * scenc)
 	mSprite = cocos2d::Sprite::createWithSpriteFrameName(ROCK_IMG_1);
 	SetAlive(false);
 	scenc->addChild(mSprite);
+//	explosion = cocos2d::Sprite::create();
+	//explosion->setVisible(false);
+	//scenc->addChild(explosion);
 	Init();
 }
 
 Rock::~Rock()
 {
+	
 }
 
 cocos2d::Vec2 Rock::GetPosition()
@@ -30,6 +34,11 @@ cocos2d::Animation * Rock::createAnimation(std::string name, int frames, float d
 	}
 	auto anima = cocos2d::Animation::createWithSpriteFrames(_frames, delay);
 	return anima;
+}
+
+int Rock::GetArmor()
+{
+	return mArmor;
 }
 
 void Rock::Update()
@@ -76,6 +85,6 @@ void Rock::Init()
 	mSprite->runAction(rotate);
 
 	//
-
+	mArmor = mSize * 10;
 
 }

@@ -9,7 +9,7 @@ protected:
 public:
 	Explosion();
 	Explosion(cocos2d::Scene * scene);
-	~Explosion();
+	virtual ~Explosion();
 
 	void SetPosExplotion(cocos2d::Vec2 pos);
 

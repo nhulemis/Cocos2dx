@@ -8,6 +8,7 @@ Model::Model()
 
 Model::~Model()
 {
+	//delete mSprite;
 }
 
 void Model::SetAlive(bool status)

@@ -39,6 +39,8 @@ public:
 	virtual void update(float delta);
     // implement the "static create()" method manually
     CREATE_FUNC(GameScene);
+
+	void MemoryLeak();
 };
 
 #endif // __HELLOWORLD_SCENE_H__

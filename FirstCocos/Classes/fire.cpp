@@ -1,5 +1,7 @@
 #include "Fire.h"
 #include "Define.h"
+
+
 Fire::Fire(cocos2d::Scene * scenc)
 {
 	mSprite = cocos2d::Sprite::createWithSpriteFrameName(FIRE_DRAGON_IMG);
@@ -18,7 +20,6 @@ void Fire::SetPosition(cocos2d::Vec2 pos)
 {
 	mSprite->setPosition(pos);
 }
-
 
 
 void Fire::Update()

@@ -7,7 +7,7 @@ protected:
 	bool mAlive;
 public:
 	Model();
-	~Model();
+	virtual ~Model();
 
 	virtual void SetAlive(bool status);
 	bool IsAlive();

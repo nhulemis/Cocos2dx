@@ -28,6 +28,8 @@
 #include "Define.h"
 #include <vector>
 #include "KnightSky.h"
+#include "SimpleAudioEngine.h"
+
 
 USING_NS_CC;
 
@@ -48,8 +50,10 @@ static void problemLoading(const char* filename)
 #pragma region declare
 std::vector<Rock*> rocks;
 int mFrameCount = 0;
-
+CocosDenshion::SimpleAudioEngine *soundBackGround;
 KnightSky *k;
+
+
 #pragma endregion
 
 
@@ -63,6 +67,8 @@ bool GameScene::init()
 	}
 	std::srand(time(0));
 
+	//Common::Score = 0;
+
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("sprites.plist", "sprites.png");
@@ -72,12 +78,21 @@ bool GameScene::init()
 	backGround->setPosition(visibleSize.width / 2, visibleSize.height / 2);
 	addChild(backGround);
 
+
+	soundBackGround = CocosDenshion::SimpleAudioEngine::getInstance();
+	soundBackGround->playBackgroundMusic(SOUND_BACKGROUND, true);
+	//soundBackGround->playEffect(SOUND_EFFECT, false, 1, 1, 1);
+
+
+
 	for (int i = 0; i < MAX_ROCK_ON_SCREEN; i++)
 	{
 		rocks.push_back(new Rock(this));
 	}
 
 	k = new KnightSky(this);
+
+	
 
 	scheduleUpdate();
 	return true;
@@ -98,6 +113,7 @@ void GameScene::RockFall()
 
 void GameScene::update(float delta)
 {
+	
 	mFrameCount++;
 	if (mFrameCount % 3 == 0)
 	{
@@ -115,6 +131,17 @@ void GameScene::update(float delta)
 	if (!k->IsAlive())
 	{
 		cocos2d::Director::getInstance()->pause();
+		soundBackGround->pauseBackgroundMusic();
+		MemoryLeak();
 	}
 
+}
+
+void GameScene::MemoryLeak()
+{
+	for each (auto var in rocks)
+	{
+		delete var;
+	}
+	delete k;	
 }
